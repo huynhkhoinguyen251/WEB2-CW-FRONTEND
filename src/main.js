@@ -1,11 +1,13 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
+
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+
+import 'semantic-ui-css/semantic.css';
 
 Vue.config.productionTip = false;
 
 new Vue({
   router,
-  render: function (h) { return h(App) }
-}).$mount('#app')
-  
+  render: h => h(App)
+}).$mount('#app');
