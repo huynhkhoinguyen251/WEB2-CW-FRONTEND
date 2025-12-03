@@ -1,7 +1,5 @@
 <template>
   <div>
-    
-    <h1> WELCOME TO NGUYEN'S WORDS PAGE </h1>
     <h1>Login</h1>
     
     <form action="#" @submit.prevent="onSubmit">
@@ -58,7 +56,13 @@ export default {
           password: this.password
         });
 
-        localStorage.setItem('user', JSON.stringify(response.user));
+        // Add login timestamp
+        const userWithTimestamp = {
+          ...response.user,
+          loginTimestamp: Date.now()
+        };
+
+        localStorage.setItem('user', JSON.stringify(userWithTimestamp));
         this.flash('Login successful!', 'success');
         this.$emit('user-logged-in');
         this.$router.push('/words');
